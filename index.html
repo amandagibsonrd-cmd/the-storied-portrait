@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Storied Portrait | Legacy Videos & Recipe Capture</title>
+  <meta name="description" content="Legacy videos and recipe capture films that preserve the stories, voices, and traditions that matter most." />
+
+  <style>
+    #tsp-root{
+      background:#ffffff;
+
+      --paper:#f7f7f7;
+      --ink:#2E2A26;
+      --muted:#6F675F;
+      --line:rgba(0,0,0,.08);
+
+      --navy:#1F3F5B;
+      --terracotta:#C4653D;
+      --sage:#7C8B6A;
+      --cream:#FBF6EF;
+
+      --radius:18px;
+      --radius-lg:24px;
+
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+    }
+
+    #tsp-root *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      background:#F5EFE7;
+    }
+
+    #tsp{
+      width:100%;
+      max-width:1200px;
+      margin:0 auto;
+      padding:20px 14px 36px;
+    }
+
+    .tsp-topbar{
+      background:rgba(251,246,239,.84);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      backdrop-filter:blur(10px);
+      box-shadow:0 10px 22px rgba(0,0,0,.06);
+    }
+
+    .tsp-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .tsp-mark{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      background:linear-gradient(135deg,#1F3F5B,#C4653D);
+      box-shadow:0 10px 20px rgba(0,0,0,.10);
+      flex:0 0 auto;
+    }
+
+    .tsp-brand small{
+      display:block;
+      font-weight:600;
+      color:var(--muted);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:10px;
+      margin-top:2px;
+    }
+
+    .tsp-nav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .tsp-nav a{
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      text-decoration:none;
+    }
+
+    .tsp-nav a:hover{
+      color:var(--ink);
+      background:rgba(0,0,0,.04);
+    }
+
+    .tsp-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 18px;
+      border-radius:999px;
+      font-weight:800;
+      border:none;
+      text-decoration:none;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+
+    .tsp-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 8px 18px rgba(0,0,0,.12);
+    }
+
+    .tsp-btn.primary{
+      background:var(--terracotta);
+      color:#fff;
+    }
+
+    .tsp-btn.navy{
+      background:var(--navy);
+      color:#fff;
+    }
+
+    .tsp-hero{
+      margin-top:14px;
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:0 20px 50px rgba(0,0,0,.18);
+      position:relative;
+      min-height:540px;
+    }
+
+    .tsp-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.66) 0%,
+          rgba(0,0,0,.46) 35%,
+          rgba(0,0,0,.20) 60%,
+          rgba(0,0,0,.02) 82%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.04) 0%,
+          rgba(0,0,0,.14) 60%,
+          rgba(245,239,231,.86) 100%
+        ),
+        url("hero.jpg") center/cover no-repeat;
+    }
+
+    .tsp-hero-inner{
+      position:relative;
+      padding:100px 40px 60px;
+      display:grid;
+      grid-template-columns:1.1fr .7fr;
+      gap:20px;
+      align-items:end;
+      min-height:540px;
+    }
+
+    .tsp-hero-copy{
+      max-width:560px;
+      background:rgba(0,0,0,.28);
+      backdrop-filter:blur(6px);
+      padding:28px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+    }
+
+    .tsp-kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:rgba(255,255,255,.90);
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:11px;
+      margin-bottom:14px;
+    }
+
+    .tsp-kicker span{
+      width:40px;
+      height:1px;
+      background:rgba(255,255,255,.60);
+    }
+
+    .tsp-h1{
+      margin:0 0 14px;
+      font-size:60px;
+      line-height:1.05;
+      color:#fff;
+      font-weight:900;
+      text-shadow:0 6px 18px rgba(0,0,0,.45);
+      letter-spacing:-.02em;
+    }
+
+    .tsp-subline{
+      margin:0 0 14px;
+      font-size:30px;
+      font-weight:900;
+      color:#F1C3AF;
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+
+    .tsp-sub{
+      margin:0 0 18px;
+      color:rgba(255,255,255,.96);
+      font-size:17px;
+      line-height:1.55;
+      max-width:56ch;
+    }
+
+    .tsp-cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+
+    .tsp-serve{
+      margin-top:14px;
+      color:rgba(255,255,255,.85);
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:.02em;
+    }
+
+    .tsp-snapshot{
+      background:rgba(251,247,241,.92);
+      border:1px solid rgba(255,255,255,.4);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 18px 40px rgba(0,0,0,.18);
+      max-width:320px;
+      justify-self:end;
+    }
+
+    .tsp-snapshot h3{
+      margin:0 0 10px;
+      color:var(--navy);
+      font-size:18px;
+    }
+
+    .tsp-pill{
+      margin:8px 0;
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+      line-height:1.4;
+    }
+
+    .tsp-pill b{color:var(--ink)}
+
+    .tsp-note{
+      color:var(--muted);
+      font-size:12.5px;
+      margin-top:10px;
+    }
+
+    .tsp-section{
+      margin-top:26px;
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--radius-lg);
+      padding:26px 24px;
+      box-shadow:0 8px 28px rgba(0,0,0,.06);
+    }
+
+    .tsp-section h2{
+      margin:0 0 8px;
+      text-align:center;
+      font-size:28px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+
+    .tsp-divider{
+      width:150px;
+      height:2px;
+      background:rgba(124,139,106,.35);
+      margin:10px auto 20px;
+      border-radius:999px;
+    }
+
+    .tsp-center-copy{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .tsp-steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .tsp-step{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+
+    .tsp-step .num{
+      color:var(--terracotta);
+      font-weight:900;
+      font-size:22px;
+      margin-bottom:6px;
+    }
+
+    .tsp-step h3{
+      margin:6px 0 8px;
+      font-size:16px;
+      color:var(--navy);
+    }
+
+    .tsp-step p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .tsp-cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:22px;
+    }
+
+    .tsp-card{
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 12px 28px rgba(0,0,0,.08);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+
+    .tsp-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(0,0,0,.12);
+    }
+
+    .tsp-body{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+      border-top:1px solid rgba(0,0,0,.05);
+    }
+
+    .tsp-body h3{
+      margin:0;
+      color:var(--navy);
+      font-size:19px;
+    }
+
+    .tsp-meta{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .tsp-body ul{
+      margin:0;
+      padding-left:18px;
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .tsp-body li{margin:6px 0}
+
+    .tsp-card .tsp-btn{
+      width:100%;
+      margin-top:auto;
+      font-size:14px;
+      padding:10px 14px;
+    }
+
+    .tsp-pill-highlight{
+      display:inline-block;
+      background:rgba(196,101,61,.12);
+      color:#1F3F5B;
+      font-weight:700;
+      font-size:14px;
+      line-height:1.45;
+      padding:10px 16px;
+      border-radius:999px;
+      margin-top:10px;
+      border:1px solid rgba(196,101,61,.25);
+    }
+
+    .price-pill{
+      background:rgba(31,63,91,.10);
+      border:1px solid rgba(31,63,91,.25);
+    }
+
+    .host-pill{
+      background:rgba(124,139,106,.12);
+      border:1px solid rgba(124,139,106,.25);
+    }
+
+    .tsp-faq{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:20px;
+    }
+
+    #tsp-root details{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:14px 16px;
+    }
+
+    #tsp-root summary{
+      cursor:pointer;
+      font-weight:900;
+      color:var(--navy);
+    }
+
+    #tsp-root details p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .tsp-cta2{
+      margin-top:18px;
+      background:linear-gradient(135deg, rgba(31,63,91,.14), rgba(196,101,61,.14));
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+      padding:22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .tsp-cta2 h3{
+      margin:0;
+      font-size:22px;
+      color:var(--navy);
+    }
+
+    .tsp-cta2 p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:70ch;
+    }
+
+    .tsp-footer{
+      text-align:center;
+      color:rgba(43,42,40,.65);
+      font-size:12.5px;
+      padding-top:14px;
+    }
+
+    @media (max-width:980px){
+      .tsp-nav{display:none}
+      .tsp-hero-inner{
+        grid-template-columns:1fr;
+        padding:70px 20px 40px;
+        min-height:auto;
+      }
+      .tsp-h1{font-size:40px}
+      .tsp-subline{font-size:24px}
+      .tsp-sub{font-size:16px}
+      .tsp-snapshot{
+        justify-self:start;
+        max-width:100%;
+        margin-top:12px;
+      }
+      .tsp-steps,
+      .tsp-cards,
+      .tsp-faq{
+        grid-template-columns:1fr;
+      }
+      #tsp{
+        padding-left:10px;
+        padding-right:10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="tsp-root">
+    <div id="tsp">
+
+      <div class="tsp-topbar">
+        <div class="tsp-brand">
+          <div class="tsp-mark"></div>
+          <div>
+            The Storied Portrait
+            <small>legacy videos & recipe capture</small>
+          </div>
+        </div>
+
+        <div class="tsp-nav">
+          <a href="#pricing">Pricing</a>
+          <a href="#services">Services</a>
+          <a href="#how">How It Works</a>
+          <a href="#expect">What to Expect</a>
+          <a href="#faqs">FAQs</a>
+          <a class="tsp-btn primary" href="#book">Inquire</a>
+        </div>
+      </div>
+
+      <section class="tsp-hero">
+        <div class="tsp-hero-inner">
+          <div class="tsp-hero-copy">
+            <div class="tsp-kicker">
+              <span></span>
+              Story-led keepsake films
+              <span></span>
+            </div>
+
+            <h1 class="tsp-h1">Preserve the stories that matter most</h1>
+            <p class="tsp-subline">Legacy videos & recipe capture</p>
+
+            <p class="tsp-sub">
+              The Storied Portrait creates heartfelt films that preserve voice, memory, family tradition, and presence. From legacy storytelling sessions to heirloom recipe films, each experience is calm, guided, and deeply personal.
+            </p>
+
+            <div class="tsp-cta">
+              <a class="tsp-btn primary" href="#book">Start Your Project</a>
+              <a class="tsp-btn navy" href="#services">View Services</a>
+            </div>
+
+            <div class="tsp-serve">
+              Serving Houma, Thibodaux and the Bayou Region
+            </div>
+          </div>
+
+          <aside class="tsp-snapshot">
+            <h3>Perfect for</h3>
+            <div class="tsp-pill"><b>Legacy videos</b> for parents, grandparents, and loved ones</div>
+            <div class="tsp-pill"><b>Recipe capture</b> for heirloom dishes and family traditions</div>
+            <div class="tsp-pill"><b>Calm guided filming</b> with a natural storytelling approach</div>
+            <div class="tsp-pill"><b>Meaningful keepsakes</b> your family can revisit for years</div>
+            <div class="tsp-note">Thoughtfully filmed and edited with a timeless, personal feel.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="tsp-section" id="pricing">
+        <h2>Simple Service Offerings</h2>
+        <div class="tsp-divider"></div>
+
+        <p class="tsp-center-copy">
+          Two meaningful ways to preserve what matters most. Both services are personal, guided, and intentionally crafted to feel calm, beautiful, and lasting.
+        </p>
+
+        <div class="tsp-cards" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+          <div class="tsp-card">
+            <div class="tsp-body">
+              <h3>Legacy Video</h3>
+              <p style="font-size:32px; font-weight:900; color:var(--terracotta); margin:0;">$350</p>
+
+              <div class="tsp-pill-highlight price-pill">
+                Signature service focused on voice, memory, and presence
+              </div>
+
+              <p class="tsp-meta" style="margin-top:4px;"><b>Includes:</b></p>
+              <ul>
+                <li>Guided filmed interview</li>
+                <li>Calm conversational storytelling</li>
+                <li>Thoughtfully edited keepsake film</li>
+                <li>Digital delivery for family sharing</li>
+              </ul>
+
+              <a class="tsp-btn primary" href="#book">Book Legacy Video</a>
+            </div>
+          </div>
+
+          <div class="tsp-card">
+            <div class="tsp-body">
+              <h3>Recipe Capture</h3>
+              <p style="font-size:32px; font-weight:900; color:var(--navy); margin:0;">$350</p>
+
+              <div class="tsp-pill-highlight host-pill">
+                Preserve the recipe, the hands, and the story behind the dish
+              </div>
+
+              <p class="tsp-meta" style="margin-top:4px;"><b>Includes:</b></p>
+              <ul>
+                <li>Filmed recipe preparation</li>
+                <li>Natural storytelling while cooking</li>
+                <li>Edited highlight keepsake film</li>
+                <li>Perfect for heirloom recipes</li>
+              </ul>
+
+              <a class="tsp-btn navy" href="#book">Book Recipe Capture</a>
+            </div>
+          </div>
+
+          <div class="tsp-card">
+            <div class="tsp-body">
+              <h3>Guided Experience</h3>
+              <p style="font-size:32px; font-weight:900; color:var(--navy); margin:0;">Included</p>
+
+              <p class="tsp-meta">Every booking is designed to feel easy, supported, and meaningful from start to finish.</p>
+              <ul>
+                <li>Pre-session planning conversation</li>
+                <li>Comfortable guided filming process</li>
+                <li>Professional editing and storytelling</li>
+                <li>Beautiful keepsake film delivered digitally</li>
+              </ul>
+
+              <a class="tsp-btn navy" href="#expect">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tsp-section" id="services">
+        <h2>Choose Your Story</h2>
+        <div class="tsp-divider"></div>
+
+        <div class="tsp-cards">
+          <div class="tsp-card">
+            <div class="tsp-body">
+              <h3>Legacy Video</h3>
+              <p class="tsp-meta">
+                <b>Best for:</b> families wanting to preserve a loved one’s voice, memories, personality, and story in a deeply personal way.
+              </p>
+              <ul>
+                <li>Guided storytelling prompts</li>
+                <li>Personal conversational filming style</li>
+                <li>A meaningful film centered on one life and voice</li>
+              </ul>
+              <a class="tsp-btn navy" href="#book">Choose This Service</a>
+            </div>
+          </div>
+
+          <div class="tsp-card">
+            <div class="tsp-body">
+              <h3>Recipe Capture</h3>
+              <p class="tsp-meta">
+                <b>Best for:</b> heirloom recipes, holiday dishes, and meaningful family traditions you want to preserve on film.
+              </p>
+              <ul>
+                <li>Cook and tell the story at the same time</li>
+                <li>Beautiful details of ingredients, process, and presence</li>
+                <li>Preserves both the recipe and the person behind it</li>
+              </ul>
+              <a class="tsp-btn navy" href="#book">Choose This Service</a>
+            </div>
+          </div>
+
+          <div class="tsp-card">
+            <div class="tsp-body">
+              <h3>Perfect For</h3>
+              <p class="tsp-meta">
+                <b>Especially meaningful for:</b> birthdays, anniversaries, family gifts, memorial keepsakes, and simply preserving someone while you can.
+              </p>
+              <ul>
+                <li>Parents and grandparents</li>
+                <li>Family recipes worth keeping</li>
+                <li>Meaningful gifts and keepsakes</li>
+              </ul>
+              <a class="tsp-btn navy" href="#book">Start Planning</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tsp-section" id="how">
+        <h2>How It Works</h2>
+        <div class="tsp-divider"></div>
+
+        <div class="tsp-steps">
+          <div class="tsp-step">
+            <div class="num">1.</div>
+            <h3>Choose Your Service</h3>
+            <p>Select either a Legacy Video or Recipe Capture session based on the kind of memory you want to preserve.</p>
+          </div>
+
+          <div class="tsp-step">
+            <div class="num">2.</div>
+            <h3>Plan the Story</h3>
+            <p>We talk through the person, setting, recipe, and details that matter most so the session feels natural and meaningful.</p>
+          </div>
+
+          <div class="tsp-step">
+            <div class="num">3.</div>
+            <h3>Film and Preserve It</h3>
+            <p>I guide the process gently, capture the story with intention, and deliver a finished keepsake film your family can revisit.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tsp-section" id="expect">
+        <h2>What to Expect</h2>
+        <div class="tsp-divider"></div>
+
+        <p class="tsp-center-copy">
+          Every session is designed to feel relaxed, respectful, and emotionally grounded. You do not need to know what to say ahead of time.
+        </p>
+
+        <div class="tsp-steps">
+          <div class="tsp-step">
+            <h3>A calm filming experience</h3>
+            <p>
+              This is not about being polished or perfect. It is about capturing someone as they are in a way that feels honoring and true.
+            </p>
+          </div>
+
+          <div class="tsp-step">
+            <h3>Storytelling that feels natural</h3>
+            <p>
+              I guide the conversation with care so meaningful memories, details, and moments can unfold naturally without pressure.
+            </p>
+          </div>
+
+          <div class="tsp-step">
+            <h3>A keepsake with emotional weight</h3>
+            <p>
+              The final film is meant to be something your family treasures — a preservation of voice, memory, tradition, and presence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tsp-section" id="faqs">
+        <h2>Frequently Asked Questions</h2>
+        <div class="tsp-divider"></div>
+
+        <div class="tsp-faq">
+          <details>
+            <summary>Do people need to be comfortable on camera?</summary>
+            <p>
+              No. Most people are not used to being filmed. The process is guided in a way that helps them settle in naturally.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can family members be included?</summary>
+            <p>
+              Yes. Depending on the project, family members can be present, participate in conversation, or be included in portions of the filming.
+            </p>
+          </details>
+
+          <details>
+            <summary>What kinds of recipes work best for Recipe Capture?</summary>
+            <p>
+              Recipes with emotional connection work beautifully — holiday dishes, comfort foods, family traditions, and meals that carry memory.
+            </p>
+          </details>
+
+          <details>
+            <summary>How is the final film delivered?</summary>
+            <p>
+              Final films are delivered digitally so they can be saved, shared with family, and revisited for years to come.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tsp-cta2" id="book">
+        <div>
+          <h3>Ready to preserve a story or family recipe?</h3>
+          <p>
+            Tell me a little about the person, the memory, or the recipe you want to capture, and I’ll help you choose the best fit.
+          </p>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="tsp-btn primary" href="mailto:amanda@thestoriedportrait.com?subject=Storied%20Portrait%20Inquiry">Inquire by Email</a>
+          <a class="tsp-btn navy" href="#services">View Services</a>
+        </div>
+      </section>
+
+      <div class="tsp-footer">
+        © <span id="tsp-year"></span> The Storied Portrait • Legacy videos and recipe capture for families in the Bayou Region
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("tsp-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
