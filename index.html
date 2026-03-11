@@ -192,16 +192,32 @@
       overflow: hidden;
       color: white;
       background:
-        linear-gradient(120deg, rgba(16, 28, 44, 0.84), rgba(34, 55, 84, 0.56)),
-        url('https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        linear-gradient(120deg, rgba(10, 18, 30, 0.88), rgba(22, 38, 59, 0.58)),
+        url('header.jpg') center/cover no-repeat;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto 0 0;
-      height: 160px;
-      background: linear-gradient(to top, rgba(255,253,248,1), rgba(255,253,248,0));
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08), transparent 34%),
+        radial-gradient(circle at 80% 20%, rgba(183,145,98,0.10), transparent 28%),
+        linear-gradient(to top, rgba(255,253,248,1) 0%, rgba(255,253,248,0) 22%);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.09;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 3px 3px, 4px 4px;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -231,14 +247,19 @@
       margin: 0;
     }
 
+    .hero-copy p + p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
     .hero-card {
       align-self: end;
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255,255,255,0.16);
       border-radius: 28px;
       padding: 1.5rem;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.22);
     }
 
     .hero-card-label {
@@ -460,10 +481,9 @@
     .portrait {
       min-height: 520px;
       border-radius: 28px;
-      background:
-        linear-gradient(180deg, rgba(34,55,84,0.1), rgba(34,55,84,0.2)),
-        url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      background: linear-gradient(180deg, rgba(34,55,84,0.06), rgba(34,55,84,0.12));
       box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
     .faq-item {
@@ -568,7 +588,10 @@
           <span class="eyebrow">Legacy films for families, founders, and futures</span>
           <h1>Because every voice deserves to be remembered.</h1>
           <p>
-            The Storied Portrait creates beautifully filmed legacy interviews and cinematic story portraits that preserve the memories, wisdom, and presence of the people who matter most.
+            A cinematic interview experience that preserves the stories, wisdom, and voice of the people who shaped your life.
+          </p>
+          <p style="margin-top:1rem; max-width:620px; font-size:1rem; color:rgba(255,255,255,0.74);">
+            Thoughtfully guided, beautifully filmed, and crafted to become an heirloom your family can return to for generations.
           </p>
           <div class="btn-row">
             <a class="btn btn-primary" href="#stories">Watch a Story</a>
@@ -577,7 +600,10 @@
         </div>
 
         <aside class="hero-card" aria-label="Signature offering">
-          <div class="hero-card-label">Signature Experience</div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1rem;">
+            <span class="hero-card-label" style="margin-bottom:0;">Signature Experience</span>
+            <span style="display:inline-flex; align-items:center; padding:0.35rem 0.7rem; border-radius:999px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.14); font-size:0.78rem; color:rgba(255,255,255,0.82);">Louisiana Based</span>
+          </div>
           <h2>Legacy Portrait Session</h2>
           <p>
             A guided documentary interview designed to preserve family history, voice, and meaning in a way that feels timeless.
@@ -697,7 +723,7 @@
       <div class="container">
         <h2 class="section-title">A story should feel as beautiful as the life behind it.</h2>
         <p class="section-intro">
-          Use this section for your featured film, trailer, or example portrait. Replace the sample background below with your embedded YouTube or Vimeo video when you’re ready.
+          Watch a featured Storied Portrait or trailer here. This section is designed to hold your signature film and give visitors an immediate feel for the emotional tone and quality of your work.
         </p>
 
         <div class="showcase">
@@ -715,7 +741,7 @@
               “This is more than a video. It becomes a way to hear someone again — to keep their wisdom, humor, and spirit close.”
             </blockquote>
             <p>
-              Replace this with a real client testimonial once you have one. A strong testimonial will make the page feel even more premium and trustworthy.
+              Families often say these portraits become one of the most meaningful things they have — not just because they preserve memories, but because they preserve presence.
             </p>
             <div class="btn-row">
               <a class="btn btn-dark" href="#connect">Inquire About a Session</a>
@@ -727,23 +753,23 @@
 
     <section class="section premium-band">
       <div class="container">
-        <h2 class="section-title">What makes the brand feel premium</h2>
+        <h2 class="section-title">The experience is designed to feel calm, meaningful, and timeless.</h2>
         <p class="section-intro">
-          Premium is not about looking flashy. It is about restraint, warmth, beautiful pacing, and language that feels considered. This page is designed to feel cinematic, editorial, and emotionally grounded.
+          Families choose The Storied Portrait because the experience is thoughtful and deeply personal. The goal is not simply to record a story — it is to create a space where someone can reflect on their life with warmth, honesty, and dignity.
         </p>
 
         <div class="story-grid">
           <article class="card">
-            <h3>Editorial spacing</h3>
-            <p>Generous white space creates calm and sophistication. It signals that the work is thoughtful and worth lingering over.</p>
+            <h3>A thoughtful pace</h3>
+            <p>The interview process is intentionally unhurried so stories unfold naturally and people feel comfortable sharing what matters most.</p>
           </article>
           <article class="card">
-            <h3>Cinematic palette</h3>
-            <p>Deep navy, cream, and warm neutrals feel timeless and elevated while still carrying emotional warmth.</p>
+            <h3>Documentary craftsmanship</h3>
+            <p>Careful lighting, sound, and editing give each portrait the feeling of a small documentary film rather than a simple recording.</p>
           </article>
           <article class="card">
-            <h3>Quiet confidence</h3>
-            <p>The copy avoids hype and leans into meaning, trust, and a clear sense of service quality.</p>
+            <h3>A film your family keeps</h3>
+            <p>The final portrait becomes something families return to again and again — a voice, a story, and a presence preserved for future generations.</p>
           </article>
         </div>
       </div>
@@ -757,19 +783,95 @@
         </p>
 
         <div class="about-wrap">
-          <div class="portrait" aria-hidden="true"></div>
+          <div class="portrait">
+            <img src="amanda-gibson-storied-portrait.jpg" alt="Amanda Gibson — Founder of The Storied Portrait" style="width:100%; height:100%; object-fit:cover; border-radius:28px;" />
+          </div>
           <div class="panel">
             <h3 style="margin-top:0;">Why this work exists</h3>
             <p>
               The heart of The Storied Portrait is simple: stories matter, and the people we love deserve to be remembered in more than fragments. This work is about preserving voice, presence, and meaning before time quietly carries them away.
             </p>
             <p>
-              As you refine the brand, this section can also include a short founder story, your filming philosophy, and the kind of experience clients can expect when they trust you with someone they love.
+              Through this work, Amanda creates a space where people can slow down and share the memories, lessons, humor, and reflections that shaped their lives. The result is a film that feels deeply personal — something families can return to for generations.
             </p>
             <div class="btn-row">
               <a class="btn btn-light" href="#connect">Start the Conversation</a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Why families choose to do this now</h2>
+        <p class="section-intro">
+          Most people are not looking for a video. They are responding to a feeling — the quiet realization that someone’s stories, voice, humor, and wisdom deserve to be kept while there is still time to preserve them well.
+        </p>
+
+        <div class="value-grid">
+          <article class="card">
+            <h3>A parent is getting older</h3>
+            <p>
+              Families often reach out when they realize how much could be lost if a parent or grandparent’s voice and memories are never intentionally recorded.
+            </p>
+          </article>
+          <article class="card">
+            <h3>A season of life is changing</h3>
+            <p>
+              Retirement, illness, milestone birthdays, anniversaries, and becoming a grandparent often create the perfect moment to preserve a life story with meaning.
+            </p>
+          </article>
+          <article class="card">
+            <h3>They want something deeper</h3>
+            <p>
+              More than photos, families want the stories behind the pictures — the values, laughter, perspective, and reflections that make someone unforgettable.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Storied Portrait Session</h2>
+        <p class="section-intro">
+          A simple, meaningful way to preserve a loved one's voice, memories, and life story. Each session is designed to feel relaxed and conversational while capturing the moments and reflections that matter most.
+        </p>
+
+        <div class="value-grid">
+          <article class="card">
+            <h3>Portrait Session</h3>
+            <p>
+              A guided documentary-style interview filmed in a comfortable setting. Thoughtful prompts help draw out meaningful stories, memories, and life reflections.
+            </p>
+            <ul>
+              <li>Guided life‑story interview</li>
+              <li>Professional video & audio recording</li>
+              <li>Cinematic edited keepsake film</li>
+              <li>Digital delivery for family sharing</li>
+            </ul>
+            <p style="margin-top:1rem; font-weight:600; color:var(--navy-deep); font-size:1.2rem;">$350</p>
+          </article>
+
+          <article class="card">
+            <h3>Perfect for</h3>
+            <ul>
+              <li>Preserving a parent or grandparent's story</li>
+              <li>Milestone birthdays or anniversaries</li>
+              <li>Recording family history</li>
+              <li>Capturing wisdom for future generations</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>What families receive</h3>
+            <ul>
+              <li>A beautifully edited portrait film</li>
+              <li>A lasting family heirloom</li>
+              <li>A voice and story preserved in time</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -812,7 +914,7 @@
             <a class="btn btn-secondary" href="#top">Back to Top</a>
           </div>
           <p style="margin-top:1rem; color:rgba(255,255,255,0.74);">
-            Replace the email link, add your inquiry form, or connect this button to your preferred booking platform.
+            For session inquiries, collaborations, or questions, reach out directly by email and begin the conversation.
           </p>
         </div>
       </div>
