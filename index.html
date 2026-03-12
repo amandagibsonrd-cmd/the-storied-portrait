@@ -425,14 +425,49 @@
       min-height: 420px;
       border-radius: 28px;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(22,38,59,0.18), rgba(22,38,59,0.68)),
-        url(https://youtu.be/aEVfXpDKctA?si=xx97cvgRaZwXPl2g) center/cover no-repeat;
       box-shadow: var(--shadow);
+      background: #101a29;
+    }
+
+    .video-poster {
+      position: relative;
       display: flex;
       align-items: end;
+      min-height: 420px;
       padding: 2rem;
       color: white;
+      cursor: pointer;
+      background:
+        linear-gradient(180deg, rgba(12,20,33,0.18), rgba(12,20,33,0.72)),
+        url('header.jpg') center/cover no-repeat;
+    }
+
+    .video-poster::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,18,30,0.78), rgba(10,18,30,0.08));
+      pointer-events: none;
+    }
+
+    .video-poster-content {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+    }
+
+    .video-embed {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-frame.is-playing .video-poster {
+      display: none;
+    }
+
+    .video-frame.is-playing .video-embed {
+      display: block;
     }
 
     .play-badge {
@@ -727,13 +762,18 @@
         </p>
 
         <div class="showcase">
-          <div class="video-frame">
-            <div>
-              <div class="play-badge">▶</div>
-              <h3 style="font-size:1.8rem; margin:0 0 0.5rem; font-family:'Playfair Display', serif;">Featured Storied Portrait</h3>
-              <p style="margin:0; color:rgba(255,255,255,0.84); max-width:480px;">
-                A cinematic glimpse into the warmth, humanity, and quiet power of preserving a life story on film.
-              </p>
+          <div class="video-frame" id="featured-video">
+            <button class="video-poster" type="button" aria-label="Play featured Storied Portrait video" onclick="playFeaturedVideo()">
+              <div class="video-poster-content">
+                <div class="play-badge">▶</div>
+                <h3 style="font-size:1.8rem; margin:0 0 0.5rem; font-family:'Playfair Display', serif; color:white;">Watch the featured film</h3>
+                <p style="margin:0; color:rgba(255,255,255,0.84); max-width:480px;">
+                  A short film that gives families a feel for the warmth, honesty, and emotional depth behind every Storied Portrait.
+                </p>
+              </div>
+            </button>
+            <div class="video-embed">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/aEVfXpDKctA?rel=0" title="Storied Portrait Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border:0; width:100%; height:100%; min-height:420px;"></iframe>
             </div>
           </div>
           <div class="quote-box">
@@ -914,7 +954,7 @@
             <a class="btn btn-secondary" href="#top">Back to Top</a>
           </div>
           <p style="margin-top:1rem; color:rgba(255,255,255,0.74);">
-            For session inquiries, collaborations, or questions, reach out directly by email at amanda@thestoriedportrait.com and begin the conversation.
+            For session inquiries, collaborations, or questions, reach out directly by email and begin the conversation.
           </p>
         </div>
       </div>
@@ -927,5 +967,10 @@
       <div>Based in Louisiana · Documentary-style legacy storytelling</div>
     </div>
   </footer>
+  <script>
+    function playFeaturedVideo() {
+      document.getElementById('featured-video').classList.add('is-playing');
+    }
+  </script>
 </body>
 </html>
