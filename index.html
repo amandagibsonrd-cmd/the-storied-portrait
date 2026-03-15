@@ -197,6 +197,18 @@
       pointer-events: none;
     }
 
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.035) 0.6px, transparent 0.6px);
+      background-size: 4px 4px;
+      opacity: 0.18;
+      mix-blend-mode: soft-light;
+    }
+
     .hero-grid {
       position: relative;
       z-index: 2;
@@ -463,8 +475,9 @@
     }
 
     .video-showcase {
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.08fr 0.92fr;
       margin-top: 2rem;
+      align-items: stretch;
     }
 
     .video-panel,
@@ -473,6 +486,61 @@
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 24px;
       overflow: hidden;
+    }
+
+    .video-side-panel {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .video-side-panel h3 {
+      color: var(--white);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .video-side-panel p {
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 1rem;
+    }
+
+    .film-points {
+      margin: 1.4rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .film-points li {
+      color: rgba(255,255,255,0.88);
+      padding: 0.85rem 0 0;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .film-side-label {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 1rem;
+    }
+
+    .film-side-cta {
+      margin-top: 1.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: rgba(255,255,255,0.96);
+      font-weight: 700;
     }
 
     .video-frame {
@@ -501,6 +569,18 @@
       background:
         linear-gradient(to top, rgba(8,17,34,0.84), rgba(8,17,34,0.18) 55%, rgba(8,17,34,0.08));
       pointer-events: none;
+    }
+
+    .video-poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.03) 0.6px, transparent 0.6px);
+      background-size: 4px 4px;
+      opacity: 0.2;
+      mix-blend-mode: soft-light;
     }
 
     .video-poster-content {
@@ -731,6 +811,7 @@
       .video-embed iframe,
       .video-embed-wrap { min-height: 320px; }
       .video-poster { padding: 1.5rem; }
+      .video-side-panel { padding: 1.5rem; }
     }
 
     @media (max-width: 560px) {
@@ -893,8 +974,30 @@
               </p>
             </div>
           </div>
-          <div class="cover-panel">
-            <img src="cover.webp" alt="Featured story film cover image" />
+          <div class="video-side-panel">
+            <div>
+              <span class="film-side-label">What this film shows</span>
+              <h3>A story worth preserving</h3>
+              <p>
+                Every person carries a lifetime of memories. The laughter of childhood, the lessons learned over time, and the moments that shaped who they became.
+              </p>
+              <p>
+                The Storied Portrait captures those memories through a calm, guided conversation filmed with care and intention.
+              </p>
+              <p>
+                What emerges is more than a video. It becomes a cinematic keepsake that allows families to hear a loved one’s voice, stories, and reflections for generations.
+              </p>
+
+              <ul class="film-points">
+                <li>A relaxed documentary style conversation</li>
+                <li>A guided storytelling experience</li>
+                <li>A cinematic keepsake created for family</li>
+              </ul>
+            </div>
+
+            <a class="film-side-cta" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">
+              Experience a Story Portrait Session →
+            </a>
           </div>
         </div>
 
@@ -946,15 +1049,18 @@
         </div>
         <div class="card">
           <span class="tag">About Amanda</span>
-          <h3>Films rooted in presence, not performance</h3>
+          <h3>My name is Amanda Gibson. I created The Storied Portrait because I believe every life holds stories worth preserving.</h3>
           <p>
-            Amanda created The Storied Portrait from a deep belief that every voice deserves to be remembered — not only in photographs or facts, but in laughter, pauses, gestures, reflections, and the stories only that person can tell.
+            For many years I have been drawn to the moments that shape people. The memories they carry. The lessons they learned. The small details that reveal who someone truly is.
           </p>
           <p>
-            Story sessions are designed to feel relaxed and natural, more like a thoughtful conversation than a formal interview. This makes space for personality, emotion, and the small details families treasure most.
+            Photos capture moments in time, but voices and stories hold something deeper. A laugh. A pause before a memory. The way someone reflects on a life well lived.
           </p>
           <p>
-            The result is a film that feels honest, personal, and deeply connected to the person being remembered.
+            The Storied Portrait is designed to preserve those things through calm, thoughtful conversations filmed with care and intention. Each session becomes a cinematic keepsake that families can return to for generations.
+          </p>
+          <p>
+            This work is not about creating a performance. It is about creating space for someone to be fully present and to share the story of who they are.
           </p>
         </div>
       </div>
