@@ -475,10 +475,110 @@
       overflow: hidden;
     }
 
+    .video-frame {
+      position: relative;
+      min-height: 420px;
+      background: #0f1a2c;
+    }
+
+    .video-poster {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      color: var(--white);
+      cursor: pointer;
+      background:
+        linear-gradient(180deg, rgba(8,17,34,0.12), rgba(8,17,34,0.72)),
+        url('cover.webp') center center / cover no-repeat;
+    }
+
+    .video-poster::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(8,17,34,0.84), rgba(8,17,34,0.18) 55%, rgba(8,17,34,0.08));
+      pointer-events: none;
+    }
+
+    .video-poster-content {
+      position: relative;
+      z-index: 2;
+      max-width: 540px;
+    }
+
+    .video-poster-content .small-label {
+      margin-bottom: 0.85rem;
+    }
+
+    .video-poster h3 {
+      color: var(--white);
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 0.6rem;
+    }
+
+    .video-poster p {
+      color: rgba(255,255,255,0.84);
+      margin: 0;
+      max-width: 500px;
+    }
+
+    .play-button {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.24);
+    }
+
+    .video-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .video-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: rgba(255,255,255,0.92);
+      font-size: 0.84rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+    }
+
+    .video-embed-wrap {
+      display: none;
+      min-height: 420px;
+    }
+
+    .video-frame.is-playing .video-poster {
+      display: none;
+    }
+
+    .video-frame.is-playing .video-embed-wrap {
+      display: block;
+    }
+
     .video-embed {
       position: relative;
       aspect-ratio: 16 / 9;
       background: rgba(255,255,255,0.08);
+      min-height: 420px;
     }
 
     .video-embed iframe {
@@ -486,6 +586,7 @@
       height: 100%;
       border: 0;
       display: block;
+      min-height: 420px;
     }
 
     .panel-copy {
@@ -623,7 +724,13 @@
       .section { padding: 4.5rem 0; }
       .story-photo,
       .portrait-photo,
-      .gallery-item { min-height: 320px; }
+      .gallery-item,
+      .video-frame,
+      .video-poster,
+      .video-embed,
+      .video-embed iframe,
+      .video-embed-wrap { min-height: 320px; }
+      .video-poster { padding: 1.5rem; }
     }
 
     @media (max-width: 560px) {
@@ -757,8 +864,27 @@
 
         <div class="video-showcase">
           <div class="video-panel">
-            <div class="video-embed">
-              <iframe src="https://www.youtube.com/embed/aEVfXpDKctA?rel=0" title="Featured Storied Portrait story film" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="video-frame" id="featuredVideoFrame">
+              <button class="video-poster" type="button" aria-label="Play featured story film" onclick="playFeaturedStory()">
+                <div class="video-poster-content">
+                  <span class="small-label">Featured Story Film</span>
+                  <div class="play-button">▶</div>
+                  <h3>A glimpse into the heart of this work</h3>
+                  <p>
+                    Watch a cinematic story film that reflects the warmth, presence, and emotional depth behind The Storied Portrait.
+                  </p>
+                  <div class="video-badge-row">
+                    <span class="video-badge">Documentary Style</span>
+                    <span class="video-badge">Personal & Guided</span>
+                    <span class="video-badge">Made to Keep</span>
+                  </div>
+                </div>
+              </button>
+              <div class="video-embed-wrap">
+                <div class="video-embed">
+                  <iframe id="featuredStoryIframe" data-src="https://www.youtube.com/embed/aEVfXpDKctA?rel=0&autoplay=1" title="Featured Storied Portrait story film" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              </div>
             </div>
             <div class="panel-copy">
               <strong>Featured Story Film</strong>
@@ -766,9 +892,6 @@
                 This short film offers a glimpse into the heart of what The Storied Portrait creates — a calm, documentary-style conversation that preserves a person’s voice, memories, and personality so their story can be experienced for years to come.
               </p>
             </div>
-          </div>
-          <div class="cover-panel">
-            <img src="cover.webp" alt="Featured story film cover image" />
           </div>
         </div>
 
@@ -900,6 +1023,16 @@
     navLinks?.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
+
+    function playFeaturedStory() {
+      const frame = document.getElementById('featuredVideoFrame');
+      const iframe = document.getElementById('featuredStoryIframe');
+      if (!frame || !iframe) return;
+      if (!iframe.src) {
+        iframe.src = iframe.dataset.src;
+      }
+      frame.classList.add('is-playing');
+    }
 
     year.textContent = new Date().getFullYear();
   </script>
