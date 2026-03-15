@@ -523,6 +523,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
 
     .video-showcase {
@@ -749,6 +750,9 @@
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .gallery-copy {
@@ -769,7 +773,11 @@
       line-height: 1.6;
     }
 
-    .gallery-item { min-height: 280px; }
+    .gallery-item {
+      min-height: 280px;
+      aspect-ratio: 4 / 3;
+      background: #d8d0c5;
+    }
     .portrait-photo { min-height: 520px; }
 
     .cta-box {
@@ -889,6 +897,7 @@
       .video-embed-wrap { min-height: 320px; }
       .video-poster { padding: 1.5rem; }
       .video-side-panel { padding: 1.5rem; }
+      .gallery-item { aspect-ratio: 4 / 3; }
     }
 
     @media (max-width: 560px) {
@@ -1145,7 +1154,7 @@
           <img src="amanda-gibson-storied-portrait.png" alt="Amanda of The Storied Portrait with camera" />
         </div>
         <div class="card">
-          <span class="tag">The Story Behind The Storied Portrait</span>
+          <span class="tag">About Amanda</span>
           <h3>My name is Amanda Gibson. The idea for The Storied Portrait began with a conversation with my grandmother.</h3>
           <p>
             One day I decided to sit down with her and simply ask questions about her life. I expected to hear stories I already knew, but what unfolded was something completely different. As the conversation continued, memories surfaced that I had never heard before.
