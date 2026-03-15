@@ -3,7 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Storied Portrait | Story Films, Tribute Videos & Recipe Capture</title>
+  <title>The Storied Portrait | Cinematic Story Films</title>
+
+  <meta name="description" content="The Storied Portrait creates cinematic story films that preserve a person’s voice, memories, and life stories through guided documentary-style interviews. Based in Louisiana, these films become lasting keepsakes for families.">
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="The Storied Portrait | Cinematic Story Films">
+  <meta property="og:description" content="Cinematic story films that preserve a person’s voice, memories, and life stories through guided documentary-style interviews.">
+  <meta property="og:image" content="https://thestoriedportrait.com/cover.webp">
+  <meta property="og:url" content="https://thestoriedportrait.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter / X preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Storied Portrait | Cinematic Story Films">
+  <meta name="twitter:description" content="Cinematic story films that preserve voices, memories, and life stories through guided documentary-style interviews.">
+  <meta name="twitter:image" content="https://thestoriedportrait.com/cover.webp">
+
+  <!-- Local SEO -->
+  <meta name="geo.region" content="US-LA">
+  <meta name="geo.placename" content="Houma, Louisiana">
+
+  <!-- Structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoProductionCompany",
+    "name": "The Storied Portrait",
+    "url": "https://thestoriedportrait.com",
+    "description": "The Storied Portrait creates cinematic story films that preserve a person's voice, memories, and life experiences through guided documentary-style interviews.",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Louisiana"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Amanda Gibson"
+    }
+  }
+  </script>
   <meta name="description" content="The Storied Portrait creates cinematic story films, tribute videos, and recipe capture films that preserve voice, memory, and presence with warmth and care." />
   <meta name="keywords" content="The Storied Portrait, story films, tribute videos, recipe capture films, family story film, Louisiana videographer, Houma videographer" />
   <meta name="author" content="The Storied Portrait" />
@@ -98,6 +136,16 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+    }
+
+    .hero-eyebrow {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      font-weight: 700;
     }
 
     .eyebrow.light {
@@ -224,11 +272,13 @@
 
     .hero-copy h1 {
       max-width: 820px;
-      margin: 1.15rem 0 1rem;
-      letter-spacing: -0.04em;
-      line-height: 0.95;
+      margin: 0 0 1.15rem;
+      letter-spacing: -0.045em;
+      line-height: 0.94;
       color: rgba(255,255,255,0.98);
       text-wrap: balance;
+      font-size: clamp(3.4rem, 7vw, 6.8rem);
+      font-weight: 600;
     }
 
     .hero-copy p {
@@ -238,10 +288,11 @@
     }
 
     .hero-kicker {
-      max-width: 700px;
-      font-size: 1.18rem;
-      line-height: 1.55;
-      color: rgba(255,255,255,0.93);
+      max-width: 680px;
+      font-size: 1.14rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.90);
+      margin-bottom: 0.95rem;
     }
 
     .subtle-note {
@@ -692,6 +743,32 @@
       margin-top: 2rem;
     }
 
+    .gallery-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+    }
+
+    .gallery-copy {
+      padding: 1rem 1rem 1.15rem;
+    }
+
+    .gallery-copy strong {
+      display: block;
+      color: var(--white);
+      font-size: 1.08rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-copy p {
+      color: rgba(255,255,255,0.82);
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
     .gallery-item { min-height: 280px; }
     .portrait-photo { min-height: 520px; }
 
@@ -844,10 +921,10 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Story films that preserve the voices behind the memories</span>
-          <h1>Because every voice deserves to be remembered.</h1>
+          <span class="hero-eyebrow">Documentary Story Films</span>
+          <h1>Every life holds a story worth preserving.</h1>
           <p class="hero-kicker">
-            A calm, documentary-style interview experience that preserves the voice, memories, and personality of the people who shaped your life.
+            Through calm, guided conversations, The Storied Portrait creates cinematic story films that preserve a person's voice, memories, and reflections for generations to come.
           </p>
           <p>
             Filmed with care and shaped into a cinematic keepsake your family can return to for decades.
@@ -935,7 +1012,7 @@
               “The voice you love today becomes the memory you wish you could hear tomorrow.”
             </blockquote>
             <p>
-              Story films preserve the laughter, reflections, gestures, and personality that photographs alone cannot capture. They allow families to return to those moments again and again and to hear the voice behind the memories.
+              Story films preserve the laughter, reflections, gestures, and personality that photos alone cannot hold. They become something families return to again and again — a way to hear someone’s voice and remember how they truly were.
             </p>
           </div>
           <div class="story-photo">
@@ -1002,9 +1079,29 @@
         </div>
 
         <div class="gallery">
-          <div class="gallery-item"><img src="gallery-1.jpeg" alt="Documentary storytelling film interview" /></div>
-          <div class="gallery-item"><img src="gallery-2.jpeg" alt="Family recipe storytelling film moment" /></div>
-          <div class="gallery-item"><img src="gallery-3.png" alt="Small business founder storytelling film" /></div>
+          <article class="gallery-card">
+            <div class="gallery-item"><img src="gallery-1.jpeg" alt="Documentary storytelling film interview" /></div>
+            <div class="gallery-copy">
+              <strong>Story sessions</strong>
+              <p>Calm, guided conversations that preserve a person's voice, memories, and reflections in a way that feels natural and deeply personal.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-item"><img src="gallery-2.jpeg" alt="Family recipe storytelling film moment" /></div>
+            <div class="gallery-copy">
+              <strong>Recipe capture films</strong>
+              <p>Films that preserve the process, tradition, and story behind a meaningful dish so families can hold onto more than just the recipe itself.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-item"><img src="gallery-3.png" alt="Small business founder storytelling film" /></div>
+            <div class="gallery-copy">
+              <strong>Storytelling for brands</strong>
+              <p>Thoughtful visual storytelling that helps people feel the heart, purpose, and personality behind a business or creative work.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1048,31 +1145,24 @@
           <img src="amanda-gibson-storied-portrait.png" alt="Amanda of The Storied Portrait with camera" />
         </div>
         <div class="card">
-  <span class="tag">About Amanda</span>
-
-  <h3>My name is Amanda Gibson. The idea for The Storied Portrait began with a conversation with my grandmother.</h3>
-
-  <p>
-    One day I decided to sit down with her and simply ask questions about her life. I expected to hear stories I already knew, but what unfolded was something completely different. As the conversation continued, memories surfaced that I had never heard before.
-  </p>
-
-  <p>
-    She spoke about her childhood, her family, the challenges she faced, and the moments that shaped who she became. Just by asking thoughtful questions and giving her space to reflect, I discovered parts of her life that had never been shared with anyone before.
-  </p>
-
-  <p>
-    That experience changed how I saw the people around me. I realized that every person carries a lifetime of stories that often remain untold simply because no one ever asks.
-  </p>
-
-  <p>
-    The Storied Portrait was created to preserve those voices and memories. Through calm, guided conversations filmed with care and intention, each session becomes a cinematic keepsake that allows families to hear the stories, reflections, and personality of someone they love for generations.
-  </p>
-
-  <p>
-    This work is not about creating a performance. It is about creating space for someone to be fully present and share the story of who they are.
-  </p>
-</div>
-
+          <span class="tag">The Story Behind The Storied Portrait</span>
+          <h3>My name is Amanda Gibson. The idea for The Storied Portrait began with a conversation with my grandmother.</h3>
+          <p>
+            One day I decided to sit down with her and simply ask questions about her life. I expected to hear stories I already knew, but what unfolded was something completely different. As the conversation continued, memories surfaced that I had never heard before.
+          </p>
+          <p>
+            She spoke about her childhood, her family, the challenges she faced, and the moments that shaped who she became. Just by asking thoughtful questions and giving her space to reflect, I discovered parts of her life that had never been shared before.
+          </p>
+          <p>
+            That experience changed how I saw the people around me. I realized that every person carries a lifetime of stories that often remain untold simply because no one ever asks the right questions.
+          </p>
+          <p>
+            The Storied Portrait was created to preserve those voices and memories. Through calm, guided conversations filmed with care and intention, each session becomes a cinematic keepsake that allows families to hear the stories, reflections, and personality of someone they love for generations.
+          </p>
+          <p>
+            This work is not about creating a performance. It is about creating space for someone to be fully present and share the story of who they are.
+          </p>
+        </div>
       </div>
     </section>
 
