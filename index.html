@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>The Storied Portrait | Cinematic Story Films in Louisiana</title>
-  <meta name="description" content="The Storied Portrait creates cinematic story films in Louisiana that preserve a person’s voice, memories, and presence through guided documentary-style conversations." />
+  <meta name="description" content="The Storied Portrait creates cinematic story films in Louisiana that preserve a person’s voice, memories, and presence through guided documentary style conversations." />
   <meta name="author" content="The Storied Portrait" />
-  <meta name="keywords" content="cinematic story films, legacy films, family story film, tribute films, Houma videographer, Louisiana videographer, documentary family films" />
+  <meta name="keywords" content="cinematic story films, legacy films, life story films, family story film, tribute films, love story films, Houma videographer, Louisiana videographer, documentary family films" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="canonical" href="https://thestoriedportrait.com/" />
 
   <meta property="og:title" content="The Storied Portrait | Cinematic Story Films in Louisiana" />
-  <meta property="og:description" content="Every voice deserves to be remembered." />
+  <meta property="og:description" content="Because every voice deserves to be remembered." />
   <meta property="og:image" content="https://thestoriedportrait.com/cover.webp" />
   <meta property="og:url" content="https://thestoriedportrait.com/" />
   <meta property="og:type" content="website" />
@@ -42,7 +42,7 @@
         "name": "The Storied Portrait",
         "url": "https://thestoriedportrait.com/",
         "image": "https://thestoriedportrait.com/cover.webp",
-        "description": "The Storied Portrait creates cinematic story films that preserve a person’s voice, memories, and presence through guided documentary-style conversations.",
+        "description": "The Storied Portrait creates cinematic story films that preserve a person’s voice, memories, and presence through guided documentary style conversations.",
         "areaServed": {
           "@type": "State",
           "name": "Louisiana"
@@ -50,7 +50,8 @@
         "founder": {
           "@type": "Person",
           "name": "Amanda Gibson"
-        }
+        },
+        "email": "amanda@thestoriedportrait.com"
       },
       {
         "@type": "VideoObject",
@@ -71,21 +72,20 @@
 
   <style>
     :root{
-      --bg:#f6f1e8;
-      --bg-soft:#fbf8f3;
-      --navy:#13233c;
-      --navy-2:#1d3355;
-      --gold:#c8a978;
-      --gold-soft:#dfc5a0;
-      --text:#1f2430;
+      --cream:#f7f1e7;
+      --cream-2:#fffaf1;
+      --navy:#061525;
+      --navy-2:#0d2037;
+      --gold:#c79a4b;
+      --gold-soft:#e2c486;
+      --ink:#1b2330;
       --muted:#657182;
       --white:#ffffff;
-      --line:rgba(19,35,60,.10);
+      --line:rgba(6,21,37,.12);
       --shadow:0 18px 50px rgba(15,24,40,.10);
-      --shadow-lg:0 28px 80px rgba(11,19,35,.18);
+      --shadow-lg:0 28px 80px rgba(6,12,24,.22);
       --radius-xl:32px;
-      --radius-lg:22px;
-      --radius-md:16px;
+      --radius-lg:24px;
       --max:1180px;
       --ease:cubic-bezier(.2,.8,.2,1);
     }
@@ -95,11 +95,11 @@
     body{
       margin:0;
       font-family:'Inter',sans-serif;
-      color:var(--text);
+      color:var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,.65), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,.4), transparent 25%),
-        var(--bg);
+        radial-gradient(circle at top left, rgba(255,255,255,.9), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(199,154,75,.12), transparent 28%),
+        var(--cream);
       line-height:1.65;
       overflow-x:hidden;
     }
@@ -116,11 +116,12 @@
       font-family:'Playfair Display',serif;
       margin:0 0 1rem;
       line-height:1.04;
-      letter-spacing:-0.02em;
+      letter-spacing:-0.025em;
+      color:var(--ink);
     }
 
-    h1{font-size:clamp(3.2rem, 8vw, 6.6rem)}
-    h2{font-size:clamp(2.2rem, 5vw, 3.6rem)}
+    h1{font-size:clamp(3.2rem, 8vw, 6.8rem)}
+    h2{font-size:clamp(2.2rem, 5vw, 3.8rem)}
     h3{font-size:1.45rem}
 
     p{margin:0 0 1rem}
@@ -134,7 +135,7 @@
       height:3px;
       background:linear-gradient(90deg, var(--gold), #f1debc);
       z-index:2000;
-      box-shadow:0 0 18px rgba(200,169,120,.45);
+      box-shadow:0 0 18px rgba(199,154,75,.45);
     }
 
     .section{
@@ -142,10 +143,10 @@
       padding:6rem 0;
     }
 
-    .section.alt{background:rgba(255,255,255,.45)}
+    .section.alt{background:rgba(255,250,241,.78)}
     .section.dark{
       background:
-        linear-gradient(180deg, rgba(10,20,34,.96), rgba(13,24,42,.98)),
+        linear-gradient(180deg, rgba(6,21,37,.97), rgba(9,24,43,.98)),
         url('hero.webp') center/cover no-repeat;
       color:#fff;
       overflow:hidden;
@@ -157,70 +158,56 @@
       inset:0;
       background:
         radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 20%),
-        radial-gradient(circle at 80% 80%, rgba(200,169,120,.08), transparent 22%);
+        radial-gradient(circle at 80% 80%, rgba(199,154,75,.11), transparent 22%);
       pointer-events:none;
     }
 
-    .section-divider{
+    .section.dark .container{position:relative;z-index:2}
+    .section.dark h2,
+    .section.dark h3{color:#fff}
+    .section.dark .section-lead,
+    .section.dark p{color:rgba(255,255,255,.82)}
+
+    .ornament{
       display:flex;
-      justify-content:center;
       align-items:center;
       gap:1rem;
-      margin:0 auto 2.5rem;
-      opacity:.8;
+      color:var(--gold);
+      margin:0 0 1.6rem;
     }
 
-    .section-divider::before,
-    .section-divider::after{
+    .ornament.center{justify-content:center}
+    .ornament::before,
+    .ornament::after{
       content:"";
-      width:90px;
+      width:78px;
       height:1px;
-      background:linear-gradient(to right, transparent, rgba(200,169,120,.85), transparent);
+      background:linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity:.78;
     }
 
-    .section-divider span{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:var(--gold);
-      box-shadow:0 0 12px rgba(200,169,120,.35);
+    .leaf{
+      font-size:1.3rem;
+      line-height:1;
+      color:var(--gold);
     }
 
     .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:.6rem;
-      padding:.7rem 1rem;
-      border-radius:999px;
+      color:var(--gold);
       font-size:.78rem;
-      font-weight:700;
-      letter-spacing:.16em;
+      font-weight:800;
+      letter-spacing:.18em;
       text-transform:uppercase;
-      margin-bottom:1.15rem;
-    }
-
-    .eyebrow.light{
-      color:var(--navy);
-      background:rgba(19,35,60,.06);
-      border:1px solid rgba(19,35,60,.08);
-    }
-
-    .eyebrow.dark{
-      color:rgba(255,255,255,.92);
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter:blur(12px);
+      margin-bottom:1rem;
     }
 
     .section-lead{
       max-width:720px;
-      font-size:1.05rem;
+      font-size:1.08rem;
       color:var(--muted);
-    }
-
-    .section.dark .section-lead,
-    .section.dark p{
-      color:rgba(255,255,255,.82);
     }
 
     header{
@@ -234,7 +221,7 @@
     }
 
     header.scrolled{
-      padding:.6rem 0;
+      padding:.55rem 0;
     }
 
     .nav-shell{
@@ -242,29 +229,30 @@
       align-items:center;
       justify-content:space-between;
       gap:1rem;
-      padding:.95rem 1.2rem;
+      padding:.95rem 1.1rem;
       border-radius:999px;
-      background:rgba(255,255,255,.68);
-      border:1px solid rgba(255,255,255,.45);
+      background:rgba(255,250,241,.78);
+      border:1px solid rgba(255,255,255,.55);
       backdrop-filter:blur(16px);
       box-shadow:0 14px 40px rgba(15,24,40,.08);
     }
 
     .brand{
       font-weight:800;
-      letter-spacing:.08em;
+      letter-spacing:.12em;
       text-transform:uppercase;
       color:var(--navy);
-      font-size:.92rem;
+      font-size:.88rem;
       white-space:nowrap;
     }
 
     .nav-links{
       display:flex;
       align-items:center;
-      gap:1.4rem;
-      font-weight:600;
+      gap:1.15rem;
+      font-weight:700;
       color:var(--navy);
+      font-size:.92rem;
     }
 
     .nav-links a{
@@ -288,6 +276,16 @@
       width:100%;
     }
 
+    .nav-cta{
+      padding:.75rem 1rem;
+      border-radius:999px;
+      background:var(--navy);
+      color:#fff !important;
+      box-shadow:0 12px 28px rgba(6,21,37,.18);
+    }
+
+    .nav-cta::after{display:none}
+
     .menu-toggle{
       display:none;
       width:46px;
@@ -306,11 +304,11 @@
       display:flex;
       align-items:center;
       overflow:hidden;
-      background:
-        linear-gradient(100deg, rgba(8,14,24,.78) 0%, rgba(10,18,31,.58) 42%, rgba(10,18,31,.45) 100%),
-        url('hero.webp') center center / cover no-repeat;
       color:#fff;
       isolation:isolate;
+      background:
+        linear-gradient(90deg, rgba(6,21,37,.96) 0%, rgba(6,21,37,.82) 40%, rgba(6,21,37,.38) 70%, rgba(6,21,37,.18) 100%),
+        url('hero.webp') center right / cover no-repeat;
     }
 
     .hero::before{
@@ -318,61 +316,53 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,.08), transparent 22%),
-        radial-gradient(circle at 80% 75%, rgba(200,169,120,.12), transparent 25%);
+        radial-gradient(circle at 18% 34%, rgba(255,255,255,.07), transparent 22%),
+        linear-gradient(0deg, rgba(6,21,37,.50), transparent 46%);
       z-index:-1;
-      animation:heroGlow 9s ease-in-out infinite alternate;
     }
 
     .hero::after{
       content:"";
       position:absolute;
-      inset:0;
-      background-image:radial-gradient(rgba(255,255,255,.04) .6px, transparent .6px);
-      background-size:5px 5px;
-      opacity:.22;
-      mix-blend-mode:soft-light;
-      pointer-events:none;
-      z-index:-1;
-    }
-
-    @keyframes heroGlow{
-      0%{transform:scale(1) translateY(0)}
-      100%{transform:scale(1.05) translateY(-10px)}
+      inset:auto 0 0 0;
+      height:8px;
+      background:linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity:.7;
     }
 
     .hero-grid{
       min-height:100vh;
       display:grid;
-      grid-template-columns:1.08fr .92fr;
+      grid-template-columns:1.02fr .98fr;
       gap:2rem;
       align-items:center;
-      padding:8.5rem 0 3rem;
+      padding:8.5rem 0 4rem;
     }
 
     .hero-copy{
-      max-width:760px;
+      max-width:680px;
     }
 
-    .hero-copy .sub{
+    .hero h1{
+      color:#fff;
+      margin-bottom:1.4rem;
+      text-wrap:balance;
+    }
+
+    .hero .kicker{
       display:block;
-      color:rgba(255,255,255,.76);
-      font-size:.82rem;
-      font-weight:700;
-      letter-spacing:.18em;
+      color:var(--gold-soft);
+      font-size:.8rem;
+      font-weight:800;
+      letter-spacing:.2em;
       text-transform:uppercase;
       margin-bottom:1rem;
     }
 
-    .hero-copy h1{
-      margin-bottom:1.15rem;
-      text-wrap:balance;
-    }
-
     .hero-copy p{
-      max-width:640px;
-      font-size:1.08rem;
-      color:rgba(255,255,255,.84);
+      max-width:580px;
+      color:rgba(255,255,255,.86);
+      font-size:1.12rem;
     }
 
     .hero-actions,
@@ -390,7 +380,7 @@
       gap:.55rem;
       padding:1rem 1.35rem;
       border-radius:999px;
-      font-weight:700;
+      font-weight:800;
       transition:transform .28s var(--ease), box-shadow .28s var(--ease), background .28s var(--ease), color .28s var(--ease);
     }
 
@@ -399,7 +389,7 @@
     .btn-primary{
       background:#fff;
       color:var(--navy);
-      box-shadow:0 16px 40px rgba(0,0,0,.18);
+      box-shadow:0 16px 40px rgba(0,0,0,.20);
     }
 
     .btn-secondary{
@@ -409,6 +399,16 @@
       backdrop-filter:blur(10px);
     }
 
+    .hero-note{
+      margin-top:2rem;
+      padding-top:1.6rem;
+      border-top:1px solid rgba(199,154,75,.42);
+      color:var(--gold-soft);
+      font-family:'Playfair Display',serif;
+      font-size:1.3rem;
+      font-style:italic;
+    }
+
     .hero-card-wrap{
       display:flex;
       justify-content:flex-end;
@@ -416,27 +416,21 @@
 
     .hero-card{
       width:100%;
-      max-width:470px;
+      max-width:430px;
       padding:2rem;
       border-radius:34px;
-      background:rgba(255,255,255,.11);
+      background:rgba(255,250,241,.12);
       border:1px solid rgba(255,255,255,.16);
       backdrop-filter:blur(16px);
       box-shadow:var(--shadow-lg);
-      animation:floatCard 5s ease-in-out infinite;
-    }
-
-    @keyframes floatCard{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-10px)}
     }
 
     .hero-card .mini{
-      font-size:.78rem;
-      font-weight:700;
-      letter-spacing:.15em;
+      font-size:.76rem;
+      font-weight:800;
+      letter-spacing:.16em;
       text-transform:uppercase;
-      color:rgba(255,255,255,.74);
+      color:var(--gold-soft);
       margin-bottom:.9rem;
       display:block;
     }
@@ -478,6 +472,30 @@
       transform:translateY(0);
     }
 
+    .intro-grid{
+      display:grid;
+      grid-template-columns:1fr .85fr;
+      gap:2rem;
+      align-items:center;
+    }
+
+    .intro-card{
+      padding:2rem;
+      border-radius:30px;
+      background:#fffaf1;
+      border:1px solid rgba(6,21,37,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .intro-card .pull{
+      font-family:'Playfair Display',serif;
+      font-style:italic;
+      font-size:clamp(1.65rem, 3vw, 2.35rem);
+      line-height:1.2;
+      color:var(--navy);
+      margin-bottom:1rem;
+    }
+
     .cards{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -486,11 +504,10 @@
     }
 
     .card{
-      background:rgba(255,255,255,.76);
-      border:1px solid rgba(255,255,255,.55);
-      backdrop-filter:blur(10px);
-      border-radius:26px;
-      padding:1.6rem;
+      background:rgba(255,250,241,.88);
+      border:1px solid rgba(6,21,37,.08);
+      border-radius:28px;
+      padding:1.7rem;
       box-shadow:var(--shadow);
       transition:transform .35s var(--ease), box-shadow .35s var(--ease);
     }
@@ -500,22 +517,59 @@
       box-shadow:0 26px 60px rgba(16,24,38,.11);
     }
 
+    .icon{
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:1rem;
+      color:var(--gold);
+      border:1px solid rgba(199,154,75,.38);
+      background:rgba(199,154,75,.08);
+      font-size:1.45rem;
+    }
+
     .tag{
       display:inline-block;
-      padding:.45rem .78rem;
-      border-radius:999px;
-      background:rgba(19,35,60,.06);
-      color:var(--navy);
+      color:var(--gold);
       font-size:.76rem;
       font-weight:800;
       text-transform:uppercase;
-      letter-spacing:.08em;
-      margin-bottom:1rem;
+      letter-spacing:.12em;
+      margin-bottom:.8rem;
     }
 
     .card p,
     .card li{color:var(--muted)}
     .card li+li{margin-top:.4rem}
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.2rem;
+      margin-top:2rem;
+    }
+
+    .step{
+      position:relative;
+      padding:1.65rem;
+      border-radius:26px;
+      background:#fffaf1;
+      border:1px solid rgba(6,21,37,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .step-number{
+      display:block;
+      color:var(--gold);
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.74rem;
+      margin-bottom:.8rem;
+    }
 
     .feature-split{
       display:grid;
@@ -543,7 +597,7 @@
     .quote-box blockquote{
       margin:0;
       font-family:'Playfair Display',serif;
-      font-size:clamp(1.7rem, 3vw, 2.2rem);
+      font-size:clamp(1.7rem, 3vw, 2.25rem);
       line-height:1.22;
       color:#fff;
     }
@@ -593,7 +647,7 @@
       cursor:pointer;
       color:#fff;
       background:
-        linear-gradient(180deg, rgba(8,17,34,.12), rgba(8,17,34,.78)),
+        linear-gradient(180deg, rgba(8,17,34,.18), rgba(8,17,34,.84)),
         url('portfolio-feature.jpg') center/cover no-repeat;
     }
 
@@ -601,7 +655,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(9,18,31,.85), rgba(9,18,31,.18));
+      background:linear-gradient(to top, rgba(9,18,31,.88), rgba(9,18,31,.18));
       pointer-events:none;
     }
 
@@ -710,7 +764,6 @@
       margin-bottom:1rem;
     }
 
-    .side-panel p{color:rgba(255,255,255,.82)}
     .film-points{
       list-style:none;
       padding:0;
@@ -723,60 +776,6 @@
       padding-top:.85rem;
       border-top:1px solid rgba(255,255,255,.10);
       color:rgba(255,255,255,.88);
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1rem;
-      margin-top:2rem;
-    }
-
-    .gallery-card{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 16px 40px rgba(0,0,0,.12);
-      transition:transform .35s var(--ease);
-    }
-
-    .gallery-card:hover{
-      transform:translateY(-6px);
-    }
-
-    .gallery-image{
-      min-height:280px;
-      aspect-ratio:4/3;
-      overflow:hidden;
-    }
-
-    .gallery-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:transform 1.2s var(--ease);
-    }
-
-    .gallery-card:hover .gallery-image img{
-      transform:scale(1.06);
-    }
-
-    .gallery-copy{
-      padding:1rem 1rem 1.15rem;
-    }
-
-    .gallery-copy strong{
-      display:block;
-      color:#fff;
-      margin-bottom:.35rem;
-      font-size:1.05rem;
-    }
-
-    .gallery-copy p{
-      color:rgba(255,255,255,.80);
-      margin:0;
-      font-size:.95rem;
     }
 
     .pricing{
@@ -801,15 +800,17 @@
     }
 
     .price-card.base{
-      background:linear-gradient(180deg, #ffffff, #fbf8f2);
-      border:1px solid rgba(19,35,60,.08);
+      background:linear-gradient(180deg, #fffaf1, #f8efe1);
+      border:1px solid rgba(6,21,37,.08);
     }
 
     .price-card.featured{
-      background:linear-gradient(180deg, #13233c, #1a2d4a);
+      background:linear-gradient(180deg, var(--navy), var(--navy-2));
       color:#fff;
       border:1px solid rgba(255,255,255,.08);
     }
+
+    .price-card.featured h3{color:#fff}
 
     .price-card .topline{
       display:inline-block;
@@ -818,9 +819,10 @@
       letter-spacing:.14em;
       text-transform:uppercase;
       margin-bottom:1rem;
-      color:inherit;
-      opacity:.8;
+      color:var(--gold-soft);
     }
+
+    .price-card.base .topline{color:var(--gold)}
 
     .price{
       font-size:3rem;
@@ -867,13 +869,12 @@
     .testimonial{
       padding:2rem;
       border-radius:28px;
-      background:rgba(255,255,255,.78);
-      border:1px solid rgba(255,255,255,.52);
-      backdrop-filter:blur(10px);
+      background:#fffaf1;
+      border:1px solid rgba(6,21,37,.08);
       box-shadow:var(--shadow);
       font-size:1.08rem;
-      color:var(--text);
-      min-height:220px;
+      color:var(--ink);
+      min-height:230px;
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -899,7 +900,7 @@
       width:44px;
       height:44px;
       border-radius:50%;
-      border:1px solid rgba(19,35,60,.10);
+      border:1px solid rgba(6,21,37,.10);
       background:#fff;
       color:var(--navy);
       font-size:1rem;
@@ -924,7 +925,7 @@
       width:9px;
       height:9px;
       border-radius:50%;
-      background:rgba(19,35,60,.20);
+      background:rgba(6,21,37,.20);
       transition:transform .25s var(--ease), background .25s var(--ease);
       cursor:pointer;
       border:0;
@@ -934,7 +935,7 @@
     .dot.active{
       background:var(--gold);
       transform:scale(1.15);
-      box-shadow:0 0 12px rgba(200,169,120,.35);
+      box-shadow:0 0 12px rgba(199,154,75,.35);
     }
 
     .about-grid{
@@ -960,9 +961,8 @@
     .about-card{
       padding:2rem;
       border-radius:28px;
-      background:rgba(255,255,255,.75);
-      border:1px solid rgba(255,255,255,.55);
-      backdrop-filter:blur(10px);
+      background:#fffaf1;
+      border:1px solid rgba(6,21,37,.08);
       box-shadow:var(--shadow);
     }
 
@@ -974,8 +974,8 @@
     }
 
     .faq-card{
-      background:#fff;
-      border:1px solid var(--line);
+      background:#fffaf1;
+      border:1px solid rgba(6,21,37,.08);
       border-radius:24px;
       padding:1.6rem;
       box-shadow:var(--shadow);
@@ -984,6 +984,27 @@
 
     .faq-card:hover{
       transform:translateY(-4px);
+    }
+
+    .gift-band{
+      padding:4rem 0;
+      background:
+        linear-gradient(90deg, rgba(6,21,37,.95), rgba(6,21,37,.86)),
+        url('cover.webp') center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+    }
+
+    .gift-band h2{
+      color:#fff;
+      max-width:850px;
+      margin:0 auto 1rem;
+    }
+
+    .gift-band p{
+      color:rgba(255,255,255,.84);
+      max-width:620px;
+      margin:0 auto;
     }
 
     .cta-box{
@@ -1002,8 +1023,8 @@
 
     footer{
       padding:2rem 0 3rem;
-      background:#f1ebdf;
-      border-top:1px solid rgba(19,35,60,.08);
+      background:#f1e6d5;
+      border-top:1px solid rgba(6,21,37,.08);
     }
 
     .footer-wrap{
@@ -1021,18 +1042,20 @@
       .feature-split,
       .video-showcase,
       .about-grid,
-      .pricing{
+      .pricing,
+      .intro-grid{
         grid-template-columns:1fr;
       }
 
       .cards,
-      .gallery,
+      .steps,
       .faq-grid{
         grid-template-columns:1fr 1fr;
       }
 
       .hero-card-wrap{justify-content:flex-start}
       .cta-box{grid-template-columns:1fr}
+      .hero{background-position:center right}
     }
 
     @media (max-width:860px){
@@ -1053,8 +1076,8 @@
         gap:1rem;
         padding:1rem;
         border-radius:22px;
-        background:rgba(255,255,255,.95);
-        border:1px solid rgba(19,35,60,.08);
+        background:rgba(255,250,241,.98);
+        border:1px solid rgba(6,21,37,.08);
         box-shadow:var(--shadow);
       }
 
@@ -1067,17 +1090,21 @@
 
       .hero{
         min-height:auto;
+        background:
+          linear-gradient(180deg, rgba(6,21,37,.96), rgba(6,21,37,.82) 52%, rgba(6,21,37,.62)),
+          url('hero.webp') center top / cover no-repeat;
       }
 
+      .hero-card{display:none}
+
       .cards,
-      .gallery,
+      .steps,
       .faq-grid{
         grid-template-columns:1fr;
       }
 
       .image-box,
       .portrait,
-      .gallery-image,
       .video-frame,
       .video-poster,
       .video-embed,
@@ -1086,8 +1113,8 @@
         min-height:320px;
       }
 
-      .section-divider::before,
-      .section-divider::after{
+      .ornament::before,
+      .ornament::after{
         width:52px;
       }
     }
@@ -1099,10 +1126,10 @@
         width:100%;
       }
       .nav-shell{border-radius:24px}
-      h1{font-size:clamp(2.6rem, 13vw, 4.2rem)}
-      .testimonial{
-        min-height:auto;
-      }
+      h1{font-size:clamp(2.55rem, 13vw, 4.2rem)}
+      .hero-copy p{font-size:1rem}
+      .testimonial{min-height:auto}
+      .section{padding:4.5rem 0}
     }
   </style>
 </head>
@@ -1118,11 +1145,12 @@
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
 
         <nav class="nav-links" id="navLinks">
+          <a href="#what">What It Is</a>
           <a href="#services">Services</a>
           <a href="#featured-film">Film</a>
           <a href="#pricing">Pricing</a>
           <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a class="nav-cta" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">Begin a Story Session</a>
         </nav>
       </div>
     </div>
@@ -1133,87 +1161,140 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="sub">Documentary Story Films</span>
-          <h1>Every voice deserves to be remembered.</h1>
+          <span class="kicker">Cinematic Story Films in Louisiana</span>
+          <h1>Because every voice deserves to be remembered.</h1>
           <p>
-            Cinematic story films that preserve the voice, presence, and personality of someone you love.
+            Films that preserve the stories of the people you love.
           </p>
           <p>
-            Filmed through calm, guided conversation and shaped into a keepsake your family can return to for years.
+            A calm guided conversation becomes a timeless film your family can return to for years.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#featured-film">Watch a Story</a>
-            <a class="btn btn-secondary" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">Book a Discovery Call</a>
+            <a class="btn btn-primary" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">Begin a Story Session</a>
+            <a class="btn btn-secondary" href="#featured-film">Watch a Real Story</a>
+          </div>
+
+          <div class="hero-note">
+            Gift this to someone you love or preserve your own story.
           </div>
         </div>
 
         <div class="hero-card-wrap reveal">
           <div class="hero-card">
-            <span class="mini">Signature experience</span>
-            <h2>Signature Story Film</h2>
+            <span class="mini">Life. Love. Legacy.</span>
+            <h2>What is a Story Portrait?</h2>
             <p>
-              A guided, cinematic portrait of a person’s life and presence — shaped with care, emotion, and intention.
+              A filmed conversation that captures the life, voice, and memories of someone you love, beautifully edited into a timeless film your family will always have.
             </p>
 
             <div class="hero-list">
-              <div class="row"><span>Guided interview session</span><strong>Included</strong></div>
-              <div class="row"><span>Cinematic edited film</span><strong>10–20 min</strong></div>
-              <div class="row"><span>Legacy depth option</span><strong>Available</strong></div>
+              <div class="row"><span>Guided conversation</span><strong>Included</strong></div>
+              <div class="row"><span>Cinematic story film</span><strong>10 to 20 min</strong></div>
+              <div class="row"><span>Filmed in a meaningful place</span><strong>Yes</strong></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section alt" id="services">
+    <section class="section alt" id="what">
+      <div class="container intro-grid">
+        <div class="reveal">
+          <div class="ornament"><span class="leaf">❧</span></div>
+          <span class="eyebrow">What is a Story Portrait?</span>
+          <h2>A filmed conversation, thoughtfully shaped into a keepsake.</h2>
+          <p class="section-lead">
+            The Storied Portrait is for families who want more than photos. It preserves a person’s voice, laughter, gestures, memories, and presence in a cinematic film.
+          </p>
+        </div>
+
+        <div class="intro-card reveal">
+          <p class="pull">
+            “The voice you love today becomes the memory you wish you could hear tomorrow.”
+          </p>
+          <p>
+            Sessions are guided, relaxed, and made to feel natural. No script is needed. I gently lead the conversation so the person can simply be themselves.
+          </p>
+          <a class="btn btn-primary" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">Begin a Story Session</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
       <div class="container">
-        <div class="section-divider reveal"><span></span></div>
-        <span class="eyebrow light reveal">Services</span>
-        <h2 class="reveal">A story, captured with warmth and care.</h2>
+        <div class="ornament center reveal"><span class="leaf">❧</span></div>
+        <span class="eyebrow reveal">Services</span>
+        <h2 class="reveal">Simple story offerings with a clear purpose.</h2>
         <p class="section-lead reveal">
-          The strongest version of this work is simple: one signature service, with room for more legacy depth when a family wants it.
+          Each film is created with warmth, patience, and care so the final piece feels personal, cinematic, and easy to keep.
         </p>
 
         <div class="cards">
           <article class="card reveal">
+            <div class="icon">♡</div>
             <span class="tag">Core offering</span>
-            <h3>Signature Story Film</h3>
+            <h3>Life Story Films</h3>
             <p>
-              A guided, cinematic portrait of a person’s life and presence — not everything, but what matters most.
+              A guided film session for parents, grandparents, loved ones, and anyone whose story deserves to be preserved.
             </p>
-            <ul>
-              <li>Emotion-forward storytelling</li>
-              <li>Documentary-style interview</li>
-              <li>Ideal for parents, grandparents, and loved ones</li>
-            </ul>
           </article>
 
           <article class="card reveal">
-            <span class="tag">Optional upgrade</span>
-            <h3>Legacy Upgrade</h3>
+            <div class="icon">♥</div>
+            <span class="tag">For couples</span>
+            <h3>Love Story Films</h3>
             <p>
-              For families who want a fuller record, this option preserves more of the life timeline, family details, and complete conversation.
+              A cinematic conversation for couples who want to preserve the story of how they met, what they built, and what they want remembered.
             </p>
-            <ul>
-              <li>Full interview recording included</li>
-              <li>Extended edit with added family depth</li>
-              <li>A more complete record of the person’s story</li>
-            </ul>
           </article>
 
           <article class="card reveal">
-            <span class="tag">Also available</span>
-            <h3>Other Storytelling Projects</h3>
+            <div class="icon">✦</div>
+            <span class="tag">Meaningful gifts</span>
+            <h3>Tribute Films</h3>
             <p>
-              Tribute films, recipe capture films, and select story-centered projects for meaningful occasions.
+              A heartfelt film created for a birthday, retirement, anniversary, memorial, or family milestone.
             </p>
-            <ul>
-              <li>Tribute gifts</li>
-              <li>Love Story Films</li>
-              <li>Recipe heritage films</li>
-              <li>Select brand storytelling projects</li>
-            </ul>
+          </article>
+        </div>
+
+        <div class="cards" style="grid-template-columns:1fr;max-width:780px;">
+          <article class="card reveal">
+            <div class="icon">♨</div>
+            <span class="tag">Family heritage</span>
+            <h3>Family Recipe and Story Films</h3>
+            <p>
+              Preserve the dish, the hands, the voice, and the story behind a family recipe.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="ornament center reveal"><span class="leaf">❧</span></div>
+        <span class="eyebrow reveal">How it works</span>
+        <h2 class="reveal">The process is calm, simple, and guided.</h2>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span class="step-number">Step 01</span>
+            <h3>We talk through the story</h3>
+            <p>We begin with a short call so I can understand who the film is for and what matters most.</p>
+          </article>
+
+          <article class="step reveal">
+            <span class="step-number">Step 02</span>
+            <h3>We film in a meaningful place</h3>
+            <p>The session usually happens at home or somewhere comfortable. I guide the conversation gently.</p>
+          </article>
+
+          <article class="step reveal">
+            <span class="step-number">Step 03</span>
+            <h3>Your film is created</h3>
+            <p>The footage is shaped into a cinematic story film your family can watch, share, and keep.</p>
           </article>
         </div>
       </div>
@@ -1221,17 +1302,17 @@
 
     <section class="section dark" id="featured-film">
       <div class="container">
-        <div class="section-divider reveal"><span></span></div>
-        <span class="eyebrow dark reveal">Featured film</span>
+        <div class="ornament center reveal"><span class="leaf">❧</span></div>
+        <span class="eyebrow reveal">Watch a real story</span>
         <h2 class="reveal">Not just a video. A way of holding onto someone.</h2>
 
         <div class="feature-split">
           <div class="quote-box reveal">
             <blockquote>
-              “The voice you love today becomes the memory you wish you could hear tomorrow.”
+              “Photos show what someone looked like. A Story Portrait lets you hear them again.”
             </blockquote>
             <p>
-              Story films preserve the laughter, reflections, gestures, and personality that photos alone cannot hold.
+              These films preserve the laughter, pauses, expressions, and stories that become priceless with time.
             </p>
           </div>
 
@@ -1281,51 +1362,25 @@
               </p>
 
               <ul class="film-points">
-                <li>Emotion-first storytelling</li>
+                <li>Emotion first storytelling</li>
                 <li>Guided and comfortable filming</li>
                 <li>A keepsake families return to again and again</li>
               </ul>
             </div>
 
-            <a class="btn btn-secondary" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">Start Your Story</a>
+            <a class="btn btn-secondary" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">Begin a Story Session</a>
           </div>
-        </div>
-
-        <div class="gallery">
-          <article class="gallery-card reveal">
-            <div class="gallery-image"><img src="gallery-1.jpeg" alt="Documentary-style family story film interview in a home setting" /></div>
-            <div class="gallery-copy">
-              <strong>Story sessions</strong>
-              <p>Calm, guided conversations that feel natural, intimate, and deeply personal.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card reveal">
-            <div class="gallery-image"><img src="gallery-2.jpeg" alt="Recipe capture film preserving a family dish and story" /></div>
-            <div class="gallery-copy">
-              <strong>Recipe capture films</strong>
-              <p>Preserve the dish, the hands, the voice, and the story behind it.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card reveal">
-            <div class="gallery-image"><img src="gallery-3.png" alt="Story-centered brand film for a small business owner" /></div>
-            <div class="gallery-copy">
-              <strong>Storytelling projects</strong>
-              <p>Selective visual storytelling for meaningful people, projects, and brands.</p>
-            </div>
-          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="pricing">
       <div class="container">
-        <div class="section-divider reveal"><span></span></div>
-        <span class="eyebrow light reveal">Pricing</span>
-        <h2 class="reveal">A meaningful investment in something you’ll keep.</h2>
+        <div class="ornament center reveal"><span class="leaf">❧</span></div>
+        <span class="eyebrow reveal">Pricing</span>
+        <h2 class="reveal">A meaningful investment in something you will keep.</h2>
         <p class="section-lead reveal">
-         Designed to feel simple, clear, and worth it.
+          Simple pricing for families who are ready to preserve a voice, a story, and a presence.
         </p>
 
         <div class="pricing">
@@ -1335,33 +1390,43 @@
             <div class="price">$450</div>
             <p class="price-note">A cinematic story portrait designed to capture what matters most.</p>
             <ul>
-              <li>1–2 hour guided filming session</li>
-              <li>10–20 minute cinematic story film</li>
+              <li>1 to 2 hour guided filming session</li>
+              <li>10 to 20 minute cinematic story film</li>
               <li>Professionally edited and delivered digitally</li>
-              <li>Filmed in-home or in a meaningful location</li>
+              <li>Filmed in home or in a meaningful location</li>
             </ul>
           </article>
 
           <article class="price-card base reveal">
-            <span class="topline">Optional add-on</span>
+            <span class="topline">Optional add on</span>
             <h3>Legacy Upgrade</h3>
             <div class="price">+$250</div>
-            <p class="price-note">For families who want a more complete preservation of life details.</p>
+            <p class="price-note">For families who want a fuller record of life details and memories.</p>
             <ul>
               <li>Full interview recording included</li>
               <li>Extended edit with more family details</li>
               <li>Added prompts for legacy depth</li>
-              <li>Ideal for families wanting a fuller record</li>
+              <li>Ideal for families wanting a more complete record</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
+    <section class="gift-band">
+      <div class="container reveal">
+        <div class="ornament center"><span class="leaf">❧</span></div>
+        <h2>Gift this to someone you love or preserve your own story.</h2>
+        <p>
+          A Story Portrait is a thoughtful gift for birthdays, anniversaries, retirements, holidays, and family milestones.
+        </p>
+      </div>
+    </section>
+
     <section class="section alt">
       <div class="container">
-        <div class="section-divider reveal"><span></span></div>
-        <span class="eyebrow light reveal">What people feel</span>
+        <div class="ornament center reveal"><span class="leaf">❧</span></div>
+        <span class="eyebrow reveal">What people feel</span>
         <h2 class="reveal">This is why the work matters.</h2>
 
         <div class="testimonial-wrap reveal">
@@ -1369,18 +1434,19 @@
             <div class="testimonial-track" id="testimonialTrack">
               <div class="testimonial-slide">
                 <div class="testimonial">
-                  "Amanda put together a beautiful video that my family and I will cherish forever. It’s too late to capture someone speaking their own words about their own life, while seeing their own personality shine through, after they’re gone, which makes a video like this invaluable! Amanda is so easy to work with, so kind and is very good at editing and piecing together the data to get an amazing finished product."
+                  "Amanda put together a beautiful video that my family and I will cherish forever. It is too late to capture someone speaking their own words about their own life, while seeing their own personality shine through, after they are gone, which makes a video like this invaluable. Amanda is so easy to work with, so kind and is very good at editing and piecing together the data to get an amazing finished product."
                   <strong>Client reflection</strong>
                 </div>
               </div>
               <div class="testimonial-slide">
                 <div class="testimonial">
-"We hire Amanda for all of our videos at the school and we could not be more pleased with her work! She has a calming demeanor that puts her clients at ease while being interviewed. Amanda’s professionalism shows in her preparation for each client’s session and her ability to keep her clients relaxed and willing to engage when in front of her camera."                  <strong>Client reflection</strong>
+                  "We hire Amanda for all of our videos at the school and we could not be more pleased with her work. She has a calming demeanor that puts her clients at ease while being interviewed. Amanda’s professionalism shows in her preparation for each client’s session and her ability to keep her clients relaxed and willing to engage when in front of her camera."
+                  <strong>Client reflection</strong>
                 </div>
               </div>
               <div class="testimonial-slide">
                 <div class="testimonial">
-"Working with Amanda was such a positive experience. She has a way of making you feel at ease, which allowed me to show up authentically in sharing about my work. The video she created truly reflects the heart of what I do - creating a safe, supportive space for growth and healing. Her attention to detail and ability to capture emotion and intention is unmatched. I couldn’t recommend her and The Stories Portrait more!"
+                  "Working with Amanda was such a positive experience. She has a way of making you feel at ease, which allowed me to show up authentically in sharing about my work. The video she created truly reflects the heart of what I do. Her attention to detail and ability to capture emotion and intention is unmatched."
                   <strong>Client reflection</strong>
                 </div>
               </div>
@@ -1420,8 +1486,8 @@
 
     <section class="section alt">
       <div class="container">
-        <div class="section-divider reveal"><span></span></div>
-        <span class="eyebrow light reveal">FAQ</span>
+        <div class="ornament center reveal"><span class="leaf">❧</span></div>
+        <span class="eyebrow reveal">FAQ</span>
         <h2 class="reveal">Questions families often ask</h2>
 
         <div class="faq-grid">
@@ -1437,7 +1503,7 @@
 
           <article class="faq-card reveal">
             <h3>Can this be a gift?</h3>
-            <p>Yes. These films make deeply meaningful gifts for birthdays, anniversaries, retirements, and more.</p>
+            <p>Yes. These films make deeply meaningful gifts for birthdays, anniversaries, retirements, and family milestones.</p>
           </article>
         </div>
       </div>
@@ -1445,23 +1511,26 @@
 
     <section class="section dark" id="contact">
       <div class="container">
-        <div class="section-divider reveal"><span></span></div>
-        <span class="eyebrow dark reveal">Start your story</span>
+        <div class="ornament center reveal"><span class="leaf">❧</span></div>
+        <span class="eyebrow reveal">Start your story</span>
         <h2 class="reveal">Let’s talk about the story you want to preserve.</h2>
         <p class="section-lead reveal">
-          The best place to begin is with a discovery call. We can talk through the person at the center of it and the kind of film that would serve them best.
+          The best place to begin is with a short conversation. We can talk through the person at the center of it and the kind of film that would serve them best.
         </p>
 
         <div class="cta-box reveal">
           <div>
-            <h3 style="color:#fff;">Start with a conversation</h3>
+            <h3>Begin with a conversation</h3>
             <p>
               Whether you want a cinematic story portrait or a more complete legacy version, the first step is simply sharing the heart behind it.
+            </p>
+            <p>
+              amanda@thestoriedportrait.com
             </p>
           </div>
 
           <div class="cta-actions">
-            <a class="btn btn-primary" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">Book Your Discovery Call</a>
+            <a class="btn btn-primary" href="https://calendar.app.google/4m1TadJcNJ1GiGH78" target="_blank" rel="noopener">Begin a Story Session</a>
           </div>
         </div>
       </div>
@@ -1472,7 +1541,7 @@
   <footer>
     <div class="container footer-wrap">
       <div>© <span id="year"></span> The Storied Portrait. All rights reserved.</div>
-      <div>Because every voice deserves to be remembered.</div>
+      <div>Life. Love. Legacy.</div>
     </div>
   </footer>
 
@@ -1533,6 +1602,7 @@
     let testimonialInterval;
 
     function buildDots() {
+      if (!dotsWrap || !testimonialSlides.length) return;
       testimonialSlides.forEach((_, index) => {
         const dot = document.createElement('button');
         dot.className = 'dot' + (index === 0 ? ' active' : '');
@@ -1547,6 +1617,7 @@
     }
 
     function updateTestimonials() {
+      if (!testimonialTrack) return;
       testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
       document.querySelectorAll('.dot').forEach((dot, index) => {
         dot.classList.toggle('active', index === currentSlide);
@@ -1564,7 +1635,9 @@
     }
 
     function startAutoplay() {
-      testimonialInterval = setInterval(nextTestimonial, 5000);
+      if (testimonialSlides.length > 1) {
+        testimonialInterval = setInterval(nextTestimonial, 6000);
+      }
     }
 
     function restartAutoplay() {
@@ -1585,8 +1658,7 @@
     buildDots();
     startAutoplay();
 
-    year.textContent = new Date().getFullYear();
+    if (year) year.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
